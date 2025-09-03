@@ -38,7 +38,6 @@ async function toggleActive(e) {
   let active = await isActive();
   await browser.storage.local.set({ ytNoSpoilersActive: !active });
   applyCSS();
-  e.preventDefault();
 }
 
 async function activate() {
@@ -46,7 +45,7 @@ async function activate() {
   browser.browserAction.setIcon({ path: {
     32: "icons/youtube-on.png"
   }});
-  console.log('activating');
+  console.log('yt hide: activating');
 }
 
 async function deactivate() {
@@ -54,13 +53,13 @@ async function deactivate() {
   browser.browserAction.setIcon({ path: {
     32: "icons/youtube-off.png"
   }});
-  console.log('deactivating');
+  console.log('yt hide: deactivating');
 }
 
 async function applyCSS() {
   active = await isActive();
-  console.log('applyCSS!', active);
-  console.log('active!', active);
+  console.log('yt hide: applyCSS!', active);
+  console.log('yt hide: active!', active);
   if (active) {
     activate();
   } else {
@@ -72,3 +71,10 @@ applyCSS();
 
 browser.browserAction.onClicked.addListener(toggleActive);
 browser.tabs.onUpdated.addListener(applyCSS);
+
+browser.commands.onCommand.addListener((command) => {
+  if (command === "toggle-hiding-spoilers") {
+    console.log("yt hide: keyboard shortcut pressed");
+    toggleActive();
+  }
+});

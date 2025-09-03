@@ -3,7 +3,7 @@
   "description": "Hide everything but the video and description on youtube + twitch",
   "manifest_version": 2,
   "name": "Youtube: No Spoilers",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "homepage_url": "https://github.com/sergeio/yt-no-spoilers",
   "icons": {
     "128": "icons/youtube-logo.png"
@@ -26,6 +26,15 @@
 
   "background": {
     "scripts": ["toggle.js"]
+  },
+
+  "commands": {
+    "toggle-hiding-spoilers": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Toggle hiding spoilers"
+    }
   },
 
   "content_scripts": [
