@@ -1,5 +1,17 @@
 const youtubeCss = `
-#secondary-inner, #info, #masthead-container, #chat, #related, #description, #comments, #comment-teaser, .ytp-progress-bar-container, .ytp-time-display, ytd-thumbnail-overlay-time-status-renderer, yt-thumbnail-overlay-badge-view-model {
+#secondary-inner,
+#info,
+#masthead-container,
+#chat,
+#related,
+#description,
+#comments,
+#comment-teaser,
+.ytp-progress-bar-container,
+.ytp-time-display,
+ytd-thumbnail-overlay-time-status-renderer,
+yt-thumbnail-overlay-badge-view-model,
+#mouseover-overlay {
   display: none !important;
 }
 .ytp-player-content, .ytp-ce-element {
